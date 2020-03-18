@@ -11,4 +11,18 @@ describe('constructor', () => {
     
         expect(pet.name).toEqual('Rocky');
       });
+
+
+     it('has a initial age of 0', () => {
+        const pet = new Pet('Rocky');
+
+        expect(pet.age).toEqual(0);
+      });
+     it('increments the age by 1', () => {
+        const pet = new Pet('Rocky');
+
+        pet.growUp();
+        expect(pet.age).toEqual(1);
   });
+  
+});

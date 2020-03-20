@@ -7,7 +7,7 @@ function Pet(pname) {
    this.hunger = 0;
    this.fitness = MAX_FITNESS_LEVEL;
    this.statsString = 0;
-   this.afterWalk = 'FITNESS IS NOW: ';
+   //this.afterWalk = 'FITNESS IS NOW: ';
    this.fitnessCheck;
    
 

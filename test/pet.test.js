@@ -1,8 +1,9 @@
 const Pet = require('../src/pet');
 
 describe('constructor', () => {
+  let pet;
   beforeEach(() => {
-    const pet = new Pet('Rocky');
+     pet = new Pet('Rocky');
 
   });
     it('returns an object', () => {
@@ -41,7 +42,18 @@ describe('constructor', () => {
     pet.walk();
     
     expect(pet.fitness).toEqual(10);
+    //expect(pet.afterWalk).toEqual();
   
   });
+
+  it('returns stats of pet', () => {
+   
+    pet.growUp(); //age = 1 ,fitness: 7
+    pet.walk(); // fitness = 10
+    pet.stats();
+    
+    expect(pet.fitness).toEqual(10);
+    expect(pet.statsString).toBe('Pet Stats: NAME: Rocky, AGE: 1, FITNESS: 10, HUNGER: 5'); //cant pass a function in expect, dafty!
   
+});
 });

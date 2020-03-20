@@ -1,5 +1,6 @@
 const FITNESS_THRESHOLD = 6;
 const MAX_FITNESS_LEVEL = 10;
+const HUNGER_THRESHOLD = 2;
 
 function Pet(pname) {
    this.name = pname;
@@ -29,11 +30,12 @@ function Pet(pname) {
         return this.statsString;
     }
 
-   /*this.feedMe = function(){
-       this.hunger -= 1;
-       
-   }*/
-      
+   this.feed = function(){
+    (this.hunger <= HUNGER_THRESHOLD) ? this.hunger = 0 : this.hunger -= 3 ;
+    //for (let i = this.hunger; i>= MIN_HUNGER_LEVEL; i--)
+       //this.hunger -= 3;
+   
+   }      
    
  
 }

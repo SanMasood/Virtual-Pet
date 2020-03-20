@@ -56,4 +56,14 @@ describe('constructor', () => {
     expect(pet.statsString).toBe('Pet Stats: NAME: Rocky, AGE: 1, FITNESS: 10, HUNGER: 5'); //cant pass a function in expect, dafty!
   
 });
+
+  it('feeds pet to decrement pet hunger level by 3', () =>  {
+  //const pet = new Pet('Rocky');
+
+    pet.growUp(); //age: 1, fitness: 7, hunger: 5
+    //pet.growUp(); //age: 2, fitness: 4, hunger: 10
+
+    expect(pet.hunger).toEqual(5);
+});
+
 });

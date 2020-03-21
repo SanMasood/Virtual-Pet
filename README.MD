@@ -5,8 +5,24 @@ It will love you forever <3
 
 ## Getting Started
 
-text text
+Open node and import using require.
+-create a pet with:
+const myPet = new Pet ('Pet Name');
 
+-Find it's current age, hunger level & fitness by:
+myPet.age;
+myPet.hunger;
+myPet.fitness;
+
+..... respectively.
+
+- Make your pet age by calling pet.growUp()
+This will cause pet.age to incerement by 1 and pet.hunger and pet.fitness to change too.
+
+-Use myPet.stats() to see your pet's current stats.
+
+
+More updates to follow!
 
 ## Built With
 
@@ -20,7 +36,7 @@ Please contact me for details on code of conduct, and the process for submitting
 
 ## Authors
 
-Manchester Codes [MCRCodes]https://github.com/MCRcodes
+Sana Masood & Manchester Codes [MCRCodes]https://github.com/MCRcodes
 
 
 ## License
@@ -29,5 +45,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Thank you Joe, Romy, Ersel & Ian for making this possible.
+* Thank you Romy, Ersel & Ian for making this possible.
 * Inspiration: Cats

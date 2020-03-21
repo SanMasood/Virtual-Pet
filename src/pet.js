@@ -33,9 +33,8 @@ function Pet(pname) {
    
    }      
     this.checkUp = function (){
-        let minFitness = 3;
-        
-        if (this.fitness <= minFitness && this.hunger<5){
+                
+        if (this.fitness <= 3 && this.hunger<5){
         this.checkUpString = `I need a walk`;
         return this.checkUpString;
         }
@@ -54,9 +53,7 @@ function Pet(pname) {
         }
 
         else return 'I feel great!';
-        
-
-       // return this.checkUpString;
+     
 
     }
    

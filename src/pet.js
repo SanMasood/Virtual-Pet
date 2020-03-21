@@ -8,8 +8,7 @@ function Pet(pname) {
    this.hunger = 0;
    this.fitness = MAX_FITNESS_LEVEL;
    this.statsString = 0;
-   //this.afterWalk = 'FITNESS IS NOW: ';
-   this.fitnessCheck;
+   this.checkUpString;
    
 
    this.growUp = function(){
@@ -19,9 +18,7 @@ function Pet(pname) {
        
    }
    Pet.prototype.walk = function (){
-    this.fitnessCheck = (this.fitness >= FITNESS_THRESHOLD) ? this.fitness = MAX_FITNESS_LEVEL : this.fitness+= 4;
-   // return (this.afterWalk);
-
+   (this.fitness >= FITNESS_THRESHOLD) ? this.fitness = MAX_FITNESS_LEVEL : this.fitness+= 4;
     }
     
 
@@ -32,10 +29,36 @@ function Pet(pname) {
 
    this.feed = function(){
     (this.hunger <= HUNGER_THRESHOLD) ? this.hunger = 0 : this.hunger -= 3 ;
-    //for (let i = this.hunger; i>= MIN_HUNGER_LEVEL; i--)
-       //this.hunger -= 3;
+    
    
    }      
+    this.checkUp = function (){
+        let minFitness = 3;
+        
+        if (this.fitness <= minFitness && this.hunger<5){
+        this.checkUpString = `I need a walk`;
+        return this.checkUpString;
+        }
+                
+
+        else if (this.fitness>3 && this.hunger >= 5){
+        this.checkUpString = 'I am hungry';
+        return this.checkUpString;
+
+        }
+                
+        
+        else if (this.fitness <= 3 && this.hunger >= 5){
+        this.checkUpString = 'I am hungry AND I need a walk';
+        return this.checkUpString;
+        }
+
+        else return 'I feel great!';
+        
+
+       // return this.checkUpString;
+
+    }
    
  
 }

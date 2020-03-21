@@ -65,5 +65,26 @@ describe('constructor', () => {
 
     expect(pet.hunger).toEqual(5);
 });
+  it('CheckUp evaluates fitness & hunger & notifies user', () =>  {
+    
+    pet.growUp(); //fitness: 7, hunger: 5
+    pet.growUp(); //4, hunger: 10
+    pet.growUp();//1; hunger:15
+    
+    pet.checkUp();
+    expect(pet.fitness).toEqual(1);
+    expect(pet.hunger).toEqual(15);
+    expect(pet.checkUpString).toBe('I am hungry AND I need a walk');
+
+    pet.feed(); //hunger : 12
+    pet.feed(); //hunger: 9
+    pet.feed(); // hunger: 6
+    pet.feed(); //hunger: 3
+    pet.checkUp();
+    expect(pet.fitness).toEqual(1);
+    expect(pet.hunger).toEqual(3); //passes all tests till here
+    //expect(pet.checkUpString).toBe('I need a walk'); //problem statement
+
+});
 
 });

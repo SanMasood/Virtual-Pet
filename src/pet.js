@@ -10,8 +10,9 @@ function Pet(pname) {
    this.statsString = 0;
    this.checkUpString;
    
+   
 
-   this.growUp = function(){
+   Pet.prototype.growUp = function(){
        this.age+=1;
        this.hunger += 5;
        this.fitness -= 3;
@@ -22,17 +23,17 @@ function Pet(pname) {
     }
     
 
-    this.stats = function (){
+    Pet.prototype.stats = function (){
         this.statsString = `Pet Stats: NAME: ${this.name}, AGE: ${this.age}, FITNESS: ${this.fitness}, HUNGER: ${this.hunger}`;
         return this.statsString;
     }
 
-   this.feed = function(){
+   Pet.prototype.feed = function(){
     (this.hunger <= HUNGER_THRESHOLD) ? this.hunger = 0 : this.hunger -= 3 ;
     
    
    }      
-    this.checkUp = function (){
+    Pet.prototype.checkUp = function (){
                 
         if (this.fitness <= 3 && this.hunger<5){
         this.checkUpString = `I need a walk`;

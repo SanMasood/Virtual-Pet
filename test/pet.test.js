@@ -24,20 +24,24 @@ describe('constructor', () => {
        
     });
 
-  it('increments the age by 1 & hunger by 5', () => {
-  
+  it('GROW UP: increments the age by 1 & hunger by 5', () => {
+
+      //pet.isAlive();
       pet.growUp();
       expect(pet.age).toEqual(1);
       expect(pet.hunger).toEqual(5);
       expect(pet.fitness).toEqual(7);
+      pet.age = 31;
+      expect(pet.isAlive).toEqual(pet.deathString);
     });
 
-  it('walks pet & increments the fitness level by 4 until 10', () => {
+  it('WALK: walks pet & increments the fitness level by 4 until 10', () => {
   
-      pet.growUp(); //fitness: 7
+      pet.fitness = 7; //fitness: 7
       pet.walk();
-    
+          
       expect(pet.fitness).toEqual(10);
+     ;
   
     });
 
@@ -71,6 +75,11 @@ describe('constructor', () => {
     pet.checkUp();
     
     expect(pet.checkUpString).toBe('I need a walk'); //problem statement
+
+});
+  it('checks whether the pet is alive', () =>  {
+
+    return (pet.age < 30 || pet.fitness > 0 || pet.hunger < 10) ?  expect(pet.isAlive).toEqual('Your pet is alive.') : expect(pet.isAlive).toEqual('Your pet has passed away.');
 
 });
 

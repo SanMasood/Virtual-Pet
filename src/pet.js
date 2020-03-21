@@ -10,53 +10,55 @@ function Pet(pname) {
    this.statsString = 0;
    this.checkUpString;
    
-   
+   Pet.prototype = {           //end all methods with }
+   growUp(){
 
-   Pet.prototype.growUp = function(){
        this.age+=1;
        this.hunger += 5;
        this.fitness -= 3;
        
-   }
-   Pet.prototype.walk = function (){
+    },
+
+   walk(){
    (this.fitness >= FITNESS_THRESHOLD) ? this.fitness = MAX_FITNESS_LEVEL : this.fitness+= 4;
-    }
+    },
     
 
-    Pet.prototype.stats = function (){
+    stats(){
         this.statsString = `Pet Stats: NAME: ${this.name}, AGE: ${this.age}, FITNESS: ${this.fitness}, HUNGER: ${this.hunger}`;
         return this.statsString;
-    }
+    },
 
-   Pet.prototype.feed = function(){
+   feed(){
     (this.hunger <= HUNGER_THRESHOLD) ? this.hunger = 0 : this.hunger -= 3 ;
     
    
-   }      
-    Pet.prototype.checkUp = function (){
+   },      
+    checkUp(){
                 
-        if (this.fitness <= 3 && this.hunger<5){
+    if (this.fitness <= 3 && this.hunger<5){
         this.checkUpString = `I need a walk`;
         return this.checkUpString;
         }
                 
 
-        else if (this.fitness>3 && this.hunger >= 5){
+    else if (this.fitness>3 && this.hunger >= 5){
         this.checkUpString = 'I am hungry';
         return this.checkUpString;
 
         }
                 
         
-        else if (this.fitness <= 3 && this.hunger >= 5){
+    else if (this.fitness <= 3 && this.hunger >= 5){
         this.checkUpString = 'I am hungry AND I need a walk';
         return this.checkUpString;
         }
 
-        else return 'I feel great!';
+    else return 'I feel great!';
      
 
     }
+} //end of Pet.prototype =
    
  
 }

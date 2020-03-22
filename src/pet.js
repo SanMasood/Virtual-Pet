@@ -8,19 +8,34 @@ function Pet(pname) {
    this.hunger = 0;
    this.fitness = MAX_FITNESS_LEVEL;
    this.statsString = 0;
-   this.checkUpString;
+   this.deathString = 'Your pet has passed away.';
    
    Pet.prototype = {           //end all methods with }
-   growUp(){
 
-       this.age+=1;
-       this.hunger += 5;
-       this.fitness -= 3;
-       
+   get isAlive() {
+        return (this.age < 30 && this.hunger < 10 && this.fitness > 0) ? 'Your pet is alive.' : 'Your pet has passed away.';
+    },
+
+   growUp(){
+        if (!this.isAlive)
+        return this.deathString;
+
+        else { 
+    
+            this.age+=1;
+            this.hunger += 5;
+            this.fitness -= 3;
+        }
+           
     },
 
    walk(){
-   (this.fitness >= FITNESS_THRESHOLD) ? this.fitness = MAX_FITNESS_LEVEL : this.fitness+= 4;
+        if (!this.isAlive)
+        return this.deathString;
+
+        else
+       
+        (this.fitness >= FITNESS_THRESHOLD) ? this.fitness = MAX_FITNESS_LEVEL : this.fitness+= 4;
     },
     
 
@@ -30,36 +45,40 @@ function Pet(pname) {
     },
 
    feed(){
-    (this.hunger <= HUNGER_THRESHOLD) ? this.hunger = 0 : this.hunger -= 3 ;
+        if (!this.isAlive)
+        return this.deathString;
+
+        else
     
-   
-   },      
+        (this.hunger <= HUNGER_THRESHOLD) ? this.hunger = 0 : this.hunger -= 3 ;
+    
+    },  
+
     checkUp(){
-                
-    if (this.fitness <= 3 && this.hunger<5){
-        this.checkUpString = `I need a walk`;
-        return this.checkUpString;
-        }
-                
 
-    else if (this.fitness>3 && this.hunger >= 5){
-        this.checkUpString = 'I am hungry';
-        return this.checkUpString;
-
-        }
-                
+        if (!this.isAlive)
+        return this.deathString;
+    
+        else 
+        {                   
+            if (this.fitness <= 3 && this.hunger<5)
+            return `I need a walk`;
         
-    else if (this.fitness <= 3 && this.hunger >= 5){
-        this.checkUpString = 'I am hungry AND I need a walk';
-        return this.checkUpString;
+                
+
+            if (this.fitness>3 && this.hunger >= 5)
+            return 'I am hungry';
+        
+                
+            if (this.fitness <= 3 && this.hunger >= 5)
+            return `I am hungry AND I need a walk`;
+        
+            else return 'I feel great!';
+        }
         }
 
-    else return 'I feel great!';
-     
-
-    }
-} //end of Pet.prototype =
+    } //end of Pet.prototype =
    
- 
+  //end of function Pet
 }
 module.exports = Pet;

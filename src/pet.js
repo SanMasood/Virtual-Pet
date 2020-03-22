@@ -9,6 +9,7 @@ function Pet(pname) {
    this.fitness = MAX_FITNESS_LEVEL;
    this.statsString = 0;
    this.deathString = 'Your pet has passed away.';
+}
    
    Pet.prototype = {           //end all methods with }
 
@@ -80,5 +81,5 @@ function Pet(pname) {
     } //end of Pet.prototype =
    
   //end of function Pet
-}
+
 module.exports = Pet;

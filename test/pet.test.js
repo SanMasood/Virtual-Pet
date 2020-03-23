@@ -2,16 +2,21 @@ const Pet = require('../src/pet');
 
 describe('constructor', () => {
   let pet;
+
   beforeEach(() => {
      pet = new Pet('Rocky');
-
   });
+
   it('returns an object', () => {
       expect(new Pet('Rocky')).toBeInstanceOf(Object);
   });
 
-  it('sets the name property', () => {
-  
+  /*beforeEach(() => {
+    if (!pet.isAlive)
+    expect(() => pet.growUp()).toThrow(pet.deathString);
+  });*/
+
+  it('sets the name property', () => {  
       expect(pet.name).toEqual('Rocky');
   });
 
@@ -26,21 +31,28 @@ describe('constructor', () => {
 
   it('GROW UP: increments the age by 1 & hunger by 5', () => {
 
-      //pet.isAlive();
+      if (!pet.isAlive)
+      //if (this.age > 30 && this.hunger >= 10 && this.fitness ==0)
+      expect(() => pet.growUp()).toThrow(pet.deathString);
+
       pet.growUp();
       expect(pet.age).toEqual(1);
       expect(pet.hunger).toEqual(5);
       expect(pet.fitness).toEqual(7);
-      
-      pet.age = 31;
-      expect(pet.isAlive).toEqual(pet.deathString);
+
     });
+    
 
   it('WALK: walks pet & increments the fitness level by 4 until 10', () => {
 
-      pet.isAlive;
-      pet.fitness = 0;
-      expect(pet.isAlive).toEqual(pet.deathString);
+     // if (pet.age >= 31)
+
+     // expect(() => pet.walk()).toThrow('Your pet is no longer alive :(');
+
+      //pet.fitness = 0;
+      //expect(pet.isAlive).toEqual(pet.deathString);
+      if (!pet.isAlive)
+      expect(() => pet.walk()).toThrow(pet.deathString);
   
       pet.fitness = 7; 
       pet.walk();
@@ -50,8 +62,6 @@ describe('constructor', () => {
     });
 
   it('returns stats of pet', () => { //Just a fancy method to display pet's stats :)
-
-      pet.isAlive;
 
       pet.age = 1;
       pet.fitness = 10;
@@ -63,32 +73,53 @@ describe('constructor', () => {
 
   it('FEED : feeds pet to decrement pet hunger level by 3', () =>  {
     
-    pet.isAlive;
-  
-    pet.growUp(); 
-    expect(pet.hunger).toEqual(5);
+      if (!pet.isAlive)
+      expect(() => pet.feed()).toThrow(pet.deathString);
+
+      pet.growUp(); 
+      expect(pet.hunger).toEqual(5);
+      pet.feed();
+      expect(pet.hunger).toEqual(2);
 
   });
 
   it('CHECKUP: evaluates fitness & hunger & notifies user', () =>  {
+      if (!pet.isAlive)
+      expect(() => pet.checkUp()).toThrow(pet.deathString);
   
-    pet.fitness = 1;
-    pet.hunger = 15
-    pet.checkUp();
+      pet.fitness = 1;
+      pet.hunger = 9;
+      pet.checkUp();
     
-    expect(pet.checkUp()).toBe('I am hungry AND I need a walk');
+      expect(pet.checkUp()).toBe('I am hungry AND I need a walk');
 
-    pet.fitness = 1;
-    pet.hunger = 3
-    pet.checkUp();
+      pet.fitness = 1;
+      pet.hunger = 3;
+      pet.checkUp();
     
-    expect(pet.checkUp()).toBe('I need a walk'); //problem statement
+      expect(pet.checkUp()).toBe('I need a walk');
 
 });
   it('ISALIVE: checks whether the pet is alive', () =>  {
 
-    return (pet.age < 30 || pet.fitness > 0 || pet.hunger < 10) ?  expect(pet.isAlive).toEqual('Your pet is alive.') : expect(pet.isAlive).toEqual('Your pet has passed away');
+      //pet.isAlive;
 
+      pet.hunger = 10;
+      expect(pet.isAlive).toEqual(pet.deathString);
+
+      pet.age = 31;
+      expect(pet.isAlive).toEqual(pet.deathString);
+
+      pet.fitness = 0;
+      expect(pet.isAlive).toEqual(pet.deathString);
+
+});
+
+it('throws an error if the pet is not alive', () => {
+  
+    pet.fitness = 0;
+    expect(() => pet.growUp()).toThrow(pet.deathString);
+    //same for all other methods for pet
 });
 
 });

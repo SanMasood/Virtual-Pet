@@ -73,12 +73,10 @@ describe('constructor', () => {
       pet.feed();
       expect(pet.hunger).toEqual(6);
 
-    it('throws an error if the pet is not alive', () => {
-    
+  
       pet.hunger = 10;
       expect(() => pet.feed()).toThrow(pet.deathString);
-    });
-      
+       
 
   });
 
@@ -96,19 +94,27 @@ describe('constructor', () => {
     
       expect(pet.checkUp()).toBe('I need a walk');
 
-});
+      pet.age = 30;
+      pet.hunger = 10;
+      pet.fitness = 0;
+      expect(() => pet.checkUp()).toThrow(pet.deathString);
+
+});/*
   it('ISALIVE: checks whether the pet is alive', () =>  {
 
       //pet.hunger = 0;
       //pet.feed();
       //expect(pet.isAlive).toThrow(pet.deathString);
-
-      //expect(pet.isAlive).toEqual(pet.deathString);
-
       pet.age = 30;
+      pet.hunger = 10;
+      pet.fitness = 0;
+      expect(pet.isAlive).toEqual(pet.deathString);
+
+     
+
       //pet.growUp();
 
-      expect(() => pet.isAlive).toThrow(pet.deathString);
+      //expect(() => pet.isAlive).toThrow(pet.deathString);
 
       //pet.fitness = 0;
       //pet.walk();

@@ -57,10 +57,10 @@ function Pet(pname) {
 
     checkUp(){
 
-        //if (!this.isAlive)
-   //     throw new Error (this.deathString);
+        if (!this.isAlive)
+        throw new Error (this.deathString);
     
-     //   else 
+        else 
         {                   
             if (this.fitness <= 3 && this.hunger<5)
             return `I need a walk`;

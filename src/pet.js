@@ -12,10 +12,10 @@ function Pet(pname) {
    this.deathString = 'Your pet has passed away.';
 }
    
-   Pet.prototype = {           //end all methods with }
+   Pet.prototype = {          
 
    get isAlive() {
-        return (this.age < 30 && this.hunger < 10 && this.fitness > 0);
+        this.age < 30 && this.hunger < 10 && this.fitness > 0;
     },
 
    growUp(){
@@ -30,10 +30,10 @@ function Pet(pname) {
     },
 
    walk(){
-    //if (!this.isAlive) 
-      //  throw new Error(this.deathString);
-      
-        //else
+    if (!this.isAlive) {
+       throw new Error(this.deathString);
+    }      
+        else
        
         (this.fitness >= FITNESS_THRESHOLD) ? this.fitness = MAX_FITNESS_LEVEL : this.fitness+= 4;
     },
@@ -45,10 +45,11 @@ function Pet(pname) {
     },
 
    feed(){
-       // if (!this.isAlive)
-        //throw new Error (this.deathString);
+       if (!this.isAlive){
+        throw new Error (this.deathString);
+       }
 
-       // else
+       else
     
         (this.hunger <= HUNGER_THRESHOLD) ? this.hunger = 0 : this.hunger -= 3 ;
     

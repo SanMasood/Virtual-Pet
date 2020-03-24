@@ -18,10 +18,13 @@ function Pet(pname) {
         return this.age < 30 && this.hunger < 10 && this.fitness > 0;
     },
 
+    deathChecker (){
+        if (!this.isAlive) 
+            throw new Error(this.deathString);
+        },
+
    growUp(){
-        if (!this.isAlive) {
-        throw new Error(this.deathString);
-        }
+        this.deathChecker();
 
         this.age+=1;
         (this.fitness <= MIN_FITNESS_THRESHOLD) ? this.fitness = 0 : this.fitness -=3; 
@@ -30,11 +33,8 @@ function Pet(pname) {
     },
 
    walk(){
-    if (!this.isAlive) {
-       throw new Error(this.deathString);
-    }      
-        else
-       
+    this.deathChecker();
+           
         (this.fitness >= FITNESS_THRESHOLD) ? this.fitness = MAX_FITNESS_LEVEL : this.fitness+= 4;
     },
     
@@ -45,36 +45,26 @@ function Pet(pname) {
     },
 
    feed(){
-       if (!this.isAlive){
-        throw new Error (this.deathString);
-       }
-
-       else
-    
-        (this.hunger <= HUNGER_THRESHOLD) ? this.hunger = 0 : this.hunger -= 3 ;
+    this.deathChecker();    
+    (this.hunger <= HUNGER_THRESHOLD) ? this.hunger = 0 : this.hunger -= 3 ;
     
     },  
 
     checkUp(){
 
-        if (!this.isAlive)
-        throw new Error (this.deathString);
-    
-        else 
-        {                   
-            if (this.fitness <= 3 && this.hunger<5)
-            return `I need a walk`;
-        
-                
+    this.deathChecker();
 
-            if (this.fitness>3 && this.hunger >= 5)
-            return 'I am hungry';
+    {                   
+        if (this.fitness <= 3 && this.hunger<5)
+        return `I need a walk`;
+     
+        if (this.fitness>3 && this.hunger >= 5)
+        return 'I am hungry';
         
-                
-            if (this.fitness <= 3 && this.hunger >= 5)
-            return `I am hungry AND I need a walk`;
+        if (this.fitness <= 3 && this.hunger >= 5)
+        return `I am hungry AND I need a walk`;
         
-            else return 'I feel great!';
+        else return 'I feel great!';
         }
     }
 

@@ -5,21 +5,19 @@ describe('constructor', () => {
 
   beforeEach(() => {
      pet = new Pet('Rocky');
-  });
+     expect(new Pet('Rocky')).toBeInstanceOf(Object);
+     expect(pet.name).toEqual('Rocky');
 
+  });
+/*
   it('returns an object', () => {
       expect(new Pet('Rocky')).toBeInstanceOf(Object);
   });
 
-  /*beforeEach(() => {
-    if (!pet.isAlive)
-    expect(() => pet.growUp()).toThrow(pet.deathString);
-  });*/
-
   it('sets the name property', () => {  
       expect(pet.name).toEqual('Rocky');
   });
-
+*/
 
   it('has a initial age of 0 & hunger of 0 & fitness of 10', () => {
 
@@ -99,34 +97,6 @@ describe('constructor', () => {
       pet.fitness = 0;
       expect(() => pet.checkUp()).toThrow(pet.deathString);
 
-});/*
-  it('ISALIVE: checks whether the pet is alive', () =>  {
-
-      //pet.hunger = 0;
-      //pet.feed();
-      //expect(pet.isAlive).toThrow(pet.deathString);
-      pet.age = 30;
-      pet.hunger = 10;
-      pet.fitness = 0;
-      expect(pet.isAlive).toEqual(pet.deathString);
-
-     
-
-      //pet.growUp();
-
-      //expect(() => pet.isAlive).toThrow(pet.deathString);
-
-      //pet.fitness = 0;
-      //pet.walk();
-      //expect(pet.isAlive).toEqual(pet.deathString);
-
 });
-/*
-it('throws an error if the pet is not alive', () => {
-  
-    pet.fitness = 0;
-    expect(() => pet.growUp()).toThrow(pet.deathString);
-    //same for all other methods for pet
-});*/
 
 });

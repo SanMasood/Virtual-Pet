@@ -10,6 +10,7 @@ function Pet(pname) {
    this.fitness = MAX_FITNESS_LEVEL;
    this.statsString = 0;
    this.deathString = 'Your pet has passed away.';
+   this.children = [];
 }
    
    Pet.prototype = {          
@@ -66,7 +67,9 @@ function Pet(pname) {
         
         else return 'I feel great!';
         }
-    }
+    },
+
+   
 
 } //end of Pet.prototype =
    

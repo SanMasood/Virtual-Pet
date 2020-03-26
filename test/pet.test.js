@@ -9,15 +9,6 @@ describe('constructor', () => {
      expect(pet.name).toEqual('Rocky');
 
   });
-/*
-  it('returns an object', () => {
-      expect(new Pet('Rocky')).toBeInstanceOf(Object);
-  });
-
-  it('sets the name property', () => {  
-      expect(pet.name).toEqual('Rocky');
-  });
-*/
 
   it('has a initial age of 0 & hunger of 0 & fitness of 10', () => {
 

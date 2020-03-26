@@ -6,10 +6,12 @@ It will love you forever <3
 ## Getting Started
 
 Open node and import using require.
--create a pet with:
+
+- Create a pet with:
 const myPet = new Pet ('Pet Name');
 
 -Find it's current age, hunger level & fitness by:
+
 myPet.age;
 myPet.hunger;
 myPet.fitness;
@@ -26,8 +28,7 @@ More updates to follow!
 
 ## Built With
 
-* JavaScript: Virtual Studio
-* Node - Dependency Management
+* Vanilla JavaScript
 * Jest - Unit Testing
  
 ## Contributing
@@ -38,10 +39,6 @@ Please contact me for details on code of conduct, and the process for submitting
 
 Sana Masood & Manchester Codes [MCRCodes]https://github.com/MCRcodes
 
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 

@@ -69,7 +69,7 @@ function Pet(pname) {
         }
     },
 
-    haveBaby(){
+    haveBaby(child){
         child = new Pet ('Child');
         this.children.push(child);
     },

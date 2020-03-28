@@ -69,6 +69,11 @@ function Pet(pname) {
         }
     },
 
+    haveBaby(){
+        child = new Pet ('Child');
+        this.children.push(child);
+    },
+
    
 
 } //end of Pet.prototype =

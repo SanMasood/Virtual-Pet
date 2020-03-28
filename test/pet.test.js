@@ -226,10 +226,20 @@ describe('isAlive', () => {
 
 });
 
+describe('haveBaby', () => {
+it ('Has a baby and pushes it into children[]', () => {
+
+ // expect().toBe(petCat.children['child']);
+
+
+})
+
+});
 
 
 
-//----------------------------------------------------------------
+
+//----------------- OLD CODE -----------------------------------------------
 /*it('GROW UP: increments the age by 1 & hunger by 5', () => {
 
       pet.age = 30;

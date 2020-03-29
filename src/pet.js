@@ -3,8 +3,8 @@ const MAX_FITNESS_LEVEL = 10;
 const HUNGER_THRESHOLD = 2;
 const MIN_FITNESS_THRESHOLD = 3;
 
-function Pet(pname) {
-   this.name = pname;
+function Pet() {
+   this.name = name;
    this.age = 0;
    this.hunger = 0;
    this.fitness = MAX_FITNESS_LEVEL;
@@ -70,8 +70,18 @@ function Pet(pname) {
     },
 
     haveBaby(child){
-        child = new Pet ('Child');
+        child = new Pet ('Kitten'); //creates new pet with properties of Pet
         this.children.push(child);
+        
+       /* function theChild(){
+        Pet.call (this);
+        this.voice = 'Meow'; 
+        
+
+        child.prototype = Object.create(Pet.prototype);//will also inherit methods of Pet
+        }*/
+
+        
     },
 
    

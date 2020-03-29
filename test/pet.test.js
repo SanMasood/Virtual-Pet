@@ -4,7 +4,7 @@ const Pet = require('../src/pet');
   let petCat;
 
   beforeEach(() => {
-     petCat = new Pet('Rocky');    
+     petCat = new Pet();    
 
   });
 
@@ -19,6 +19,10 @@ describe('constructor', () => {
 
     petCat.name = 'Rocky';
     expect(petCat.name).toEqual('Rocky');
+
+    petCat.name = 'Bravo';
+    expect(petCat.name).toEqual('Bravo');
+
   });
 
 
@@ -33,7 +37,7 @@ describe('constructor', () => {
     expect(petCat.hunger).toEqual(0);
   });
 
-  it('has a initial fitness of 0', () => {
+  it('has a initial fitness of 10', () => {
 
     expect(petCat.fitness).toEqual(10);
   });
@@ -106,6 +110,7 @@ describe('walk', () => {
 describe('stats', () => {
   it('returns a string of the current stats of petCat', () => {
 
+    petCat.name = 'Rocky';
     petCat.age = 1;
     petCat.fitness = 10;
     petCat.hunger = 5;
@@ -189,22 +194,27 @@ describe('checkUp', () => {
 
 });
 describe('isAlive', () => {
-  it ('returns true for age < 30 or false for age > 30', () => {
+  it ('returns true for age < 30' , () => {
     petCat.age = 7;
     expect(petCat.isAlive).toBe(true);
 
-
+  });
+  
+  it ('returns false for age >= 30' , () => {
     petCat.age = 30;
     expect(petCat.isAlive).toBe(false);
     expect(() => petCat.deathChecker()).toThrow(petCat.deathString);
 
   });
 
-  it ('returns true for hunger < 10 or false for hunger > 10', () => {
+  it ('returns true for hunger < 10 ', () => {
     petCat.hunger = 6;
     expect(petCat.isAlive).toBe(true);
 
+  });
 
+  it ('returns false for hunger >= 10', () => {
+  
     petCat.hunger = 10;
     expect(petCat.isAlive).toBe(false);
     expect(() => petCat.deathChecker()).toThrow(petCat.deathString);
@@ -212,15 +222,18 @@ describe('isAlive', () => {
 
   });
 
-  it ('returns true for fitness > 0 or false for fitness = 10', () => {
+  it ('returns true for fitness > 0', () => {
     petCat.fitness = 2;
     expect(petCat.isAlive).toBe(true);
+
+  });
+
+  it ('returns false for fitness = 0', () =>{
 
     petCat.fitness = 0;
     expect(petCat.isAlive).toBe(false);
     
     expect(() => petCat.deathChecker()).toThrow(petCat.deathString);
-
 
   });
 
@@ -228,11 +241,12 @@ describe('isAlive', () => {
 
 describe('haveBaby', () => {
 it ('Has a baby and pushes it into children[]', () => {
+  
+    petCat.haveBaby('kitten');
+    expect(petCat.children[0]).toBe(petCat.children['kitten']);
 
- // expect().toBe(petCat.children['child']);
 
-
-})
+});
 
 });
 

@@ -3,7 +3,7 @@ const MAX_FITNESS_LEVEL = 10;
 const HUNGER_THRESHOLD = 2;
 const MIN_FITNESS_THRESHOLD = 3;
 
-function Pet() {
+function Pet(name) {
    this.name = name;
    this.age = 0;
    this.hunger = 0;
@@ -70,16 +70,21 @@ function Pet() {
     },
 
     haveBaby(child){
-        child = new Pet ('Kitten'); //creates new pet with properties of Pet
-        this.children.push(child);
-        
-       /* function theChild(){
         Pet.call (this);
-        this.voice = 'Meow'; 
+        child.voice = 'Mew'; 
         
 
-        child.prototype = Object.create(Pet.prototype);//will also inherit methods of Pet
-        }*/
+       //child.prototype = Object.create(Pet.prototype);//will also inherit methods of Pet
+        
+        
+        return this.children.push(child);
+        
+        //You can now have as many kids as you want
+        // Each child will be pushed into the children[] array.
+        //if no name is specified, child will be called 'undefined'. 
+        
+        //function theChild(){
+       
 
         
     },

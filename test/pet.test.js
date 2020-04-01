@@ -4,7 +4,7 @@ const Pet = require('../src/pet');
   let petCat;
 
   beforeEach(() => {
-     petCat = new Pet();    
+     petCat = new Pet(name);    
 
   });
 
@@ -241,9 +241,12 @@ describe('isAlive', () => {
 
 describe('haveBaby', () => {
 it ('Has a baby and pushes it into children[]', () => {
-  
-    petCat.haveBaby('kitten');
-    expect(petCat.children[0]).toBe(petCat.children['kitten']);
+    const child = new Pet ('Baby');
+    petCat.haveBaby(child);
+
+    //child.name = 'Baby';
+
+    expect(petCat.children[0]).toEqual({"name" : "Baby", "age": 0, "children": [], "deathString": "Your pet has passed away.", "fitness": 10, "hunger": 0,  "statsString": 0, "voice": "Mew"});
 
 
 });
